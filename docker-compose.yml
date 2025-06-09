@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  service-a:
+    build: ./service-a
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  service-b:
+    build: ./service-b
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - service-a
+      - service-b
+    networks:
+      - backend
+
+  test:
+    build: ./test
+    depends_on:
+      - service-a
+      - service-b
+    networks:
+      - backend
+
+volumes:
+  db_data:
+
+networks:
+  backend:
