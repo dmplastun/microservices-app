@@ -16,7 +16,7 @@
 ---
 
 ## 📦 Структура папок
-microservices-app/
+microservices-app/ \n
 ── service-a/            # Первый микросервис
    ── app.py
    ── Dockerfile
