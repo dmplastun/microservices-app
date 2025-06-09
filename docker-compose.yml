@@ -10,21 +10,30 @@ services:
       - backend
 
   service-a:
-    build: ./service-a
+    build: 
+      context: ./service-a
+      dockerfile: Dockerfile
+    image: dcart/service-a:latest
     depends_on:
       - db
     networks:
       - backend
 
   service-b:
-    build: ./service-b
+    build: 
+      context: ./service-b
+      dockerfile: Dockerfile
+    image: dcart/service-b:latest
     depends_on:
       - db
     networks:
       - backend
 
   nginx:
-    build: ./nginx
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: dcart/nginx:latest
     ports:
       - "80:80"
     depends_on:
