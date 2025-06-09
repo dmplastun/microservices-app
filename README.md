@@ -119,6 +119,7 @@ docker compose up -d
 👤 Автор 
 
 📧 dmitrij.plastun@gmail.com
+
 🔗 https://github.com/dmplastun
 
 🙌 Спасибо за использование! 
