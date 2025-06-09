@@ -16,7 +16,8 @@
 ---
 
 ## 📦 Структура папок
-microservices-app/ \n
+```
+microservices-app/ 
 ── service-a/            # Первый микросервис
    ── app.py
    ── Dockerfile
@@ -35,6 +36,7 @@ microservices-app/ \n
 ── .github/
    ── workflows/
      ── ci-cd.yml  # CI/CD через GitHub Actions
+```
 ---
 
 ## 🚀 Как запустить проект локально
