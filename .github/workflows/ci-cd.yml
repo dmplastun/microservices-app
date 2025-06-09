@@ -21,18 +21,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          run: docker compose build --push
-          push: true
-          tags: |
-            dcart/service-a:latest
-            dcart/service-b:latest
-            dcart/nginx:latest
+      - name: Build Docker images with Docker Compose
+        run: docker compose -f docker-compose.yml build
+
+      - name: Push Docker images with Docker Compose
+        run: docker compose -f docker-compose.yml push
 
       - name: Run tests
         run: |
-          docker compose up -d
-          docker compose run test
+          docker compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.yml run test
