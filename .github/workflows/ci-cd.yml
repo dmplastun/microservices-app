@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./docker-compose.yml
+          run: docker compose build --push
           push: true
           tags: |
             dcart/service-a:latest
