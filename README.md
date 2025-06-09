@@ -17,25 +17,23 @@
 
 ## 📦 Структура папок
 ```
-microservices-app/ 
-── service-a/            # Первый микросервис
-   ── app.py
-   ── Dockerfile
-── service-b/            # Второй микросервис
-   ── app.py
-   ── Dockerfile
-── nginx/                # Nginx как reverse proxy
-   ── Dockerfile
-   ── nginx.conf
-── test/                 # Автотесты
-   ── test_app.py
-   ── Dockerfile
-── .env                  # Переменные окружения
-── docker-compose.yml    # Описание контейнеров
-── README.md             # Этот файл
-── .github/
-   ── workflows/
-     ── ci-cd.yml  # CI/CD через GitHub Actions
+microservices-app/
+├── service-a/            # Первый микросервис
+│   ├── app.py
+│   └── Dockerfile
+├── service-b/            # Второй микросервис
+│   ├── app.py
+│   └── Dockerfile
+├── nginx/                # Nginx как reverse proxy
+│   ├── Dockerfile
+│   └── nginx.conf
+├── test/                 # Автотесты
+│   ├── test_app.py
+│   └── Dockerfile
+├── .env                  # Переменные окружения
+├── docker-compose.yml    # Описание контейнеров
+├── README.md             # Этот файл
+└── .github/workflows/ci-cd.yml  # CI/CD через GitHub Actions
 ```
 ---
 
