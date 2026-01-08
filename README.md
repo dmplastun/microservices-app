@@ -6,17 +6,17 @@ This project demonstrates a basic microservices architecture consisting of two F
 
 ## 🗺️ Project Architecture
 
--**service-a**: Simple Flask service (microservice)
+-**service-a**: *Simple Flask service (microservice)*
 
--**service-b**: Second Flask service
+-**service-b**: *Second Flask service*
 
--**db**: PostgreSQL 14
+-**db**: *PostgreSQL 14*
 
--**nginx**: Reverse proxy (request routing)
+-**nginx**: *Reverse proxy (request routing)*
 
--**test**: Service availability testing 
+-**test**: *Service availability testing*
 
--**CI/CD**: GitHub Actions for building, testing, and deployment 
+-**CI/CD**: *GitHub Actions for building, testing, and deployment* 
 
 ---
 
