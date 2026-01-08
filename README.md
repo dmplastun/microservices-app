@@ -1,127 +1,133 @@
-# 🧪 Микросервисное приложение с Docker Compose
+# 🧪 Microservices App with Docker Compose
 
-Этот проект демонстрирует базовую архитектуру микросервисного приложения, состоящего из двух сервисов на Flask, PostgreSQL в качестве БД и Nginx в роли reverse proxy. Также реализованы CI/CD через GitHub Actions и автоматическое развертывание на сервере.
-
----
-
-## 🗺️ Архитектура проекта
-
-- **service-a**: Простой Flask-сервис (микросервис)
-- **service-b**: Второй Flask-сервис
-- **db**: PostgreSQL 14
-- **nginx**: Reverse proxy (маршрутизация запросов)
-- **test**: Тестирование доступности сервисов
-- **CI/CD**: GitHub Actions для сборки, тестирования и деплоя
+This project demonstrates a basic microservices architecture consisting of two Flask services, PostgreSQL as the database, and Nginx as a reverse proxy. It also includes CI/CD via GitHub Actions and automatic deployment to a server.
 
 ---
 
-## 📦 Структура папок
+## 🗺️ Project Architecture
+-**service-a**: Simple Flask service (microservice)
+-**service-b**: Second Flask service
+-**db**: PostgreSQL 14
+-**nginx**: Reverse proxy (request routing)
+-**test**: Service availability testing
+-**CI/CD**: GitHub Actions for building, testing, and deployment
+
+---
+
+## 📦 Folder Structure
 ```
 microservices-app/
-├── service-a/            # Первый микросервис
+├── service-a/            # First microservice
 │   ├── app.py
 │   └── Dockerfile
-├── service-b/            # Второй микросервис
+├── service-b/            # Second microservice
 │   ├── app.py
 │   └── Dockerfile
-├── nginx/                # Nginx как reverse proxy
+├── nginx/                # Nginx as reverse proxy
 │   ├── Dockerfile
 │   └── nginx.conf
-├── test/                 # Автотесты
+├── test/                 # Automated tests
 │   ├── test_app.py
 │   └── Dockerfile
-├── .env                  # Переменные окружения
-├── docker-compose.yml    # Описание контейнеров
-├── README.md             # Этот файл
-└── .github/workflows/ci-cd.yml  # CI/CD через GitHub Actions
+├── .env                  # Environment variables
+├── docker-compose.yml    # Container definitions
+├── README.md             # This file
+└── .github/workflows/ci-cd.yml  # CI/CD via GitHub Actions
 ```
 ---
 
-## 🚀 Как запустить проект локально
+## 🚀 How to Run Locally
 
-### 1. Клонируйте репозиторий:
+### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ваш-username/microservices-app.git 
+git clone https://github.com/your-username/microservices-app.git 
 cd microservices-app
+
 ```
-### 2. Установите зависимости: 
+### 2. Install dependencies: 
 
 Убедитесь, что у вас установлены: 
-
-    Docker  
-    Docker Compose 
+```
+Docker  
+Docker Compose 
+```
     
-### 3. Запустите приложение:
-```bash
+### 3. Start the application:
+```
 docker compose up -d
 ```
-### 4. Проверьте работу сервисов: 
+### 4. Check the services:
+```
+Service A: http://localhost/service-a 
+Service B: http://localhost/service-b 
+```
 
-    Service A: http://localhost/service-a 
-    Service B: http://localhost/service-b 
-
-### 🔍 Как проверить логи
-```bash
+### 🔍 How to check logs
+```
 docker compose logs
 ```
-или
-```bash
+or
+```
 docker compose logs service-a
 ```
-### 🧪 Как запустить тесты
-```bash
+### 🧪 How to run tests
+```
 docker compose run test
 ```
-### 🛠️ Как пересобрать проект
-Если вы внесли изменения в код: 
-```bash
+### 🛠️ How to rebuild the project
+If you made changes to the code:
+```
 docker compose build --no-cache
 docker compose up -d
 ```
-### 🔄 Как остановить проект
-```bash
+### 🔄 How to stop the project
+```
 docker compose down
 docker compose down -v
 ```
 
 ### 🧳 CI/CD Pipeline
-Проект поддерживает автоматическую сборку и развертывание через GitHub Actions. 
-Функционал: 
+The project supports automatic building and deployment via GitHub Actions.
+Features:
+```
+Building and publishing Docker images to Docker Hub
+Running automated tests
+Deploying to a remote server via SSH
+```
 
-    Сборка и публикация Docker-образов на Docker Hub
-    Выполнение автотестов
-    Развертывание на удаленном сервере через SSH
-     
-Требуется настройка: 
+Required setup:
+```
+Add the following secrets in Settings → Secrets and variables → Actions:
+    DOCKER_HUB_USERNAME: your Docker Hub login
+    DOCKER_HUB_TOKEN: token from Docker Hub
+    SERVER_HOST, SERVER_USER, SERVER_PASSWORD: your server parameters
+```
 
-    Добавьте в Settings → Secrets and variables → Actions следующие секреты:
-        DOCKER_HUB_USERNAME: ваш логин на Docker Hub
-        DOCKER_HUB_TOKEN: токен из Docker Hub
-        SERVER_HOST, SERVER_USER, SERVER_PASSWORD: параметры вашего сервера
-
-### 🌐 Как развернуть на сервере
-На удаленном сервере установите: 
-    Docker
-    Docker Compose
-    
-Подключитесь к серверу: 
-```bash
+🌐 How to Deploy to a Server
+On the remote server, install:
+```
+Docker
+Docker Compose
+```    
+Connect to the server:
+```
 ssh user@your-server-ip
 ``` 
  
-Установите проект: 
-```bash
-git clone https://github.com/ваш-username/microservices-app.git 
+Install the project:
+```
+git clone https://github.com/your-username/microservices-app.git 
 cd microservices-app
 docker compose up -d
+
 ``` 
-👤 Автор 
+👤 Author
 
 📧 dmitrij.plastun@gmail.com
 
 🔗 https://github.com/dmplastun
 
-🙌 Спасибо за использование! 
+🙌 Thanks for using it!
 
-Если понравилось — ставьте звезду ⭐ и делитесь с коллегами! 
+If you liked it — give it a star ⭐ and share with colleagues!
